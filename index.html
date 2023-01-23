@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API REST</title>
+
+    <link rel="stylesheet" href="./resources/css/tailwind.css">
+    <script defer type="module" src="./resources/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/4ffcd44680.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./node_modules/tabulator-tables/dist/css/tabulator.min.css">
+    <link rel="stylesheet" href="./node_modules/suneditor/dist/css/suneditor.min.css">
+    <script defer src="./node_modules/suneditor/dist/suneditor.min.js"></script>
+    <script defer src="./node_modules/suneditor/src/lang/es.js"></script>
+ 
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="flex items-center bg-gray-900 justify-between flex-wrap p-6 text-white">
+
+            <div class="flex items-center flex-no-shrink text-white mr-6">
+              <span class="font-semibold text-xl tracking-tight">API REST</span>
+            </div>
+
+            <div class="block lg:hidden text-white">
+                <button id="toggle" class="flex items-center px-1 py-1 border-2 rounded-md text-teal-lighter border-teal-light hover:text-green-500 hover:border-green-500">
+                    <i class="fas fa-bars text-2xl px-2 py-1"></i>
+                </button>
+            </div>
+
+            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"  id="menu">
+                <div class="text-sm lg:flex-grow">
+
+                    <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-lg mr-4">Ver registros</a>
+
+                    <div class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter mr-4">
+                        <div class="relative inline-block text-left">
+                            <div>
+                              <button type="button" class="flex mt-4  lg:mt-0 text-teal-lighter hover:text-lg mr-4" id="menu-boton" aria-expanded="true" aria-haspopup="true">
+                                Utilidades
+                                <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                              </button>
+                            </div>
+                            <div class="hidden origin-top-right absolute left-14 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1" id="dropdownMenu">
+                              <div class="py-1" role="none">
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="poblarJson">Poblar desde JSON</a>
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="poblarLocal">Poblar desde LocalStorage</a>
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-200" role="menuitem" tabindex="-1" id="sincronizar">Sincronizar</a>  
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+
+                    <a href="" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-lg ">Contáctenos</a>
+
+                </div>
+                <form class="pt-3">
+                    <input class="border-2  rounded-md px-2 text-black outline-none"  id="busqueda" type="text" placeholder="Id del unicornio">
+                    <button class="border-2  hover:bg-green-500 hover:border-green-500  rounded-md px-2 py-1" id="search" type="submit">Buscar</button>
+                </form>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+        
+    </main>
+
+    <footer>    
+        
+    </footer>
+
+    <!-- Se recomienda colocar esta parte justo antes del final del body -->
+    <div id="popup" class="hidden fixed inset-0 flex items-center justify-center" style="background-color: rgba(0,0,0,0.3);">
+        <div class="max-w-lg p-8 sm:pb-4 bg-white rounded shadow-lg text-center sm:text-left">
+
+            <h3 class="text-xl sm:text-2xl font-semibold mb-6 flex flex-col sm:flex-row items-center">
+                <div class="bg-green-200 p-2 rounded-full flex items-center mb-4 sm:mb-0 sm:mr-2">
+                    <svg class="text-green-800 inline-block w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
+                    </svg>
+                </div>
+                <span id="title"></span>
+            </h3>
+
+            <section id="content"></section>
+
+            <div class="mt-8 pt-8 sm:pt-4 border-t -mx-8 px-8 flex flex-col sm:flex-row justify-end leading-relaxed">
+                <button id="close" class="px-8 py-3 sm:py-2 rounded border border-gray-400 hover:bg-gray-200 transition duration-300">Cerrar</button>
+                <button id="accept" class="font-bold mt-4 sm:mt-0 sm:ml-4 px-8 py-3 sm:py-2 rounded bg-purple-700 text-gray-100 hover:bg-purple-900 transition duration-300 text-center">$2</button>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

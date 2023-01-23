@@ -1,0 +1,20 @@
+[
+    {
+        "_id": "60f2c342dc46c203e8b38cd4",
+        "name": "Juan david",
+        "age": "19",
+        "colour": "Blanco"
+    },
+    {
+        "_id": "60f2c342dc46c203e8b38cd4",
+        "name": "PEPEPE",
+        "age": "26",
+        "colour": "Blanco"
+    },
+    {
+        "_id": "60f2c342dc46c203e8b38cd4",
+        "name": "Rodolfo",
+        "age": "65",
+        "colour": "Rojo"
+    }
+]
